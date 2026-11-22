@@ -196,6 +196,23 @@ The online-learning controller successfully uses incremental model predictions t
 
 These findings are based on 45 benchmark runs across three simulated network profiles.
 
+## Limitations and Future Work
+
+### Current Limitations
+
+- The distributed workload is simulated using local multiprocessing workers rather than deployment across multiple physical machines.
+- Network conditions are emulated using Linux network namespaces and `tc netem`.
+- The workload and checkpoint payloads are synthetic.
+- The online-learning controller uses an estimated failure rate rather than a dynamically measured failure probability.
+- The online-learning strategy does not consistently outperform the rule-based strategy in the evaluated experiments.
+
+### Future Improvements
+
+- Deploy workers across multiple physical or virtual machines.
+- Improve the online-learning model and checkpoint scheduling objective.
+- Incorporate dynamically estimated failure rates.
+- Evaluate performance under additional network conditions and workload sizes.
+- Extend experiments to larger distributed environments.
 ## Performance Visualizations
 
 ### Execution Time Comparison

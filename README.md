@@ -27,7 +27,7 @@ computation rate to select a subsequent checkpoint interval.
 
 ## Architecture
 
-```text
+
                  Experiment Coordinator
                           |
              +------------+------------+
@@ -49,6 +49,7 @@ computation rate to select a subsequent checkpoint interval.
               Strategy / Online Learning
                           |
                 Next Checkpoint Interval
+
 
 ## Performance Visualizations
 

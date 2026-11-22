@@ -72,10 +72,10 @@ The system runs multiple workers concurrently, periodically saves their progress
 ## Performance Visualizations
 
 ### Execution Time Comparison
-![Execution Time](results/graphs/execution_time_comparison.png)
+![Execution Time](https://github.com/imTaha76/adaptive-checkpointing-online-learning/blob/main/results/graphs/execution_time_comparison.png)
 
 ### Checkpoint Count Comparison
-![Checkpoint Count](results/graphs/checkpoint_count_comparison.png)
+![Checkpoint Count](https://github.com/imTaha76/adaptive-checkpointing-online-learning/blob/main/results/graphs/checkpoint_count_comparison.png)
 
 ### Online Learning Prediction Accuracy
-![Prediction MAE](results/graphs/online_prediction_mae.png)
+![Prediction MAE](https://github.com/imTaha76/adaptive-checkpointing-online-learning/blob/main/results/graphs/online_prediction_mae.png)

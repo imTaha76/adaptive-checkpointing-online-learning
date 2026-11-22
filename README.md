@@ -117,30 +117,30 @@ The receiver server must be running in the receiver namespace before starting ne
 ## System Architecture
 
 ```text
-                 Main Process
-                      |
-          +-----------+-----------+
-          |           |           |
-       Worker 1    Worker 2    Worker 3
-          |           |           |
-          +-----------+-----------+
-                      |
-              Checkpoint Manager
-                      |
-             Local Checkpoint
-                Persistence
-                      |
-               TCP Transfer
-                      |
-              Receiver Server
-                      |
-             Transfer Logging
-                      |
-          Online Learning Controller
-                      |
-           Adaptive Interval Selection
-                      |
-              Worker Execution
+                   Main Process
+                         |
+          +--------------+--------------+
+          |              |              |
+       Worker 1       Worker 2       Worker 3
+          |              |              |
+          +--------------+--------------+
+                         |
+                Checkpoint Manager
+                         |
+                Local Checkpoint
+                   Persistence
+                         |
+                   TCP Transfer
+                         |
+                 Receiver Server
+                         |
+                 Transfer Logging
+                         |
+             Online Learning Controller
+                         |
+             Adaptive Interval Selection
+                         |
+                  Worker Execution
 ```
 
 The system runs multiple workers concurrently, periodically saves their progress, transfers checkpoint payloads over TCP, and uses observed performance data to inform future checkpoint intervals.
@@ -155,7 +155,7 @@ The system was evaluated across three simulated network conditions using three c
 
 | Network Condition | Fixed | Rule-Based | Online Learning |
 |---|---:|---:|---:|
-| Normal | 14.21 s | **15.46 s** | 16.58 s |
+| Normal | **14.21 s** | 15.46 s | 16.58 s |
 | Congested | 36.17 s | **22.52 s** | 29.23 s |
 | Unstable | 60.47 s | **29.56 s** | 45.31 s |
 

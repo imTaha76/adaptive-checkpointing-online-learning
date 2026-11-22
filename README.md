@@ -37,28 +37,36 @@ computation rate to select a subsequent checkpoint interval.
 
 ## Architecture
 
+## System Architecture
 
-                 Experiment Coordinator
-                          |
-             +------------+------------+
-             |            |            |
-          Worker 1     Worker 2     Worker 3
-             |            |            |
-             +------------+------------+
-                          |
-                  Checkpoint Manager
-                          |
-                  Local Checkpoint
-                          |
-                   TCP Transfer
-                          |
-                  Receiver Process
-                          |
-                 Transfer Measurement
-                          |
-              Strategy / Online Learning
-                          |
-                Next Checkpoint Interval
+```text
+                 Main Process
+                      |
+          +-----------+-----------+
+          |           |           |
+       Worker 1    Worker 2    Worker 3
+          |           |           |
+          +-----------+-----------+
+                      |
+              Checkpoint Manager
+                      |
+             Local Checkpoint
+                Persistence
+                      |
+               TCP Transfer
+                      |
+              Receiver Server
+                      |
+             Transfer Logging
+                      |
+          Online Learning Controller
+                      |
+           Adaptive Interval Selection
+                      |
+              Worker Execution
+```
+
+The system runs multiple workers concurrently, periodically saves their progress, transfers checkpoint payloads over TCP, and uses observed performance data to inform future checkpoint intervals.
 
 
 ## Performance Visualizations

@@ -145,6 +145,50 @@ The receiver server must be running in the receiver namespace before starting ne
 
 The system runs multiple workers concurrently, periodically saves their progress, transfers checkpoint payloads over TCP, and uses observed performance data to inform future checkpoint intervals.
 
+## Benchmark Results
+
+The system was evaluated across three simulated network conditions using three checkpointing strategies, with five trials per combination.
+
+**Total experiments:** 45 (3 network conditions × 3 strategies × 5 trials)
+
+### Average Execution Time
+
+| Network Condition | Fixed | Rule-Based | Online Learning |
+|---|---:|---:|---:|
+| Normal | 14.21 s | **15.46 s** | 16.58 s |
+| Congested | 36.17 s | **22.52 s** | 29.23 s |
+| Unstable | 60.47 s | **29.56 s** | 45.31 s |
+
+### Average Checkpoint Count
+
+| Network Condition | Fixed | Rule-Based | Online Learning |
+|---|---:|---:|---:|
+| Normal | 30 | 48.6 | 21 |
+| Congested | 30 | 12 | 21 |
+| Unstable | 30 | 12 | 21 |
+
+### Online Learning Prediction Error
+
+| Network Condition | Mean Absolute Error (MAE) |
+|---|---:|
+| Normal | 0.0180 s |
+| Congested | 1.6608 s |
+| Unstable | 3.0716 s |
+
+### Transfer Reliability
+
+- **1,128 checkpoint transfers** recorded.
+- **100% transfer success** across the evaluated experiments.
+- No failed transfers were recorded in the final benchmark batch.
+
+### Key Observations
+
+- Fixed scheduling performed best in the normal network condition.
+- Rule-based scheduling achieved the lowest execution time under congested and unstable conditions.
+- Online learning reduced checkpoint frequency compared with fixed scheduling.
+- Online learning did not outperform rule-based scheduling in execution time, indicating opportunities to improve the adaptive scheduling objective.
+
+*Results represent mean values across five trials per strategy and network condition. Network conditions were simulated using Linux traffic control and network namespaces.*
 
 ## Performance Visualizations
 

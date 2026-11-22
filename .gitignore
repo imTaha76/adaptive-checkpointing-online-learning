@@ -1,0 +1,18 @@
+.venv/
+.venv-wsl/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.idea/
+.vscode/
+
+checkpoints/*.json
+datasets/*.bin
+results/experiment_logs/
+results/*.backup
+results/*.backup_*
+src/*.before_resume_cleanup
+
+# Large synthetic benchmark payloads
+datasets/*.bin

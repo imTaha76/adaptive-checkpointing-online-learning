@@ -25,6 +25,16 @@ The online-learning strategy uses an incremental regression model to predict
 checkpoint transfer time. Its controller uses the prediction and estimated
 computation rate to select a subsequent checkpoint interval.
 
+## Project Highlights
+
+- **3 checkpointing strategies:** Fixed, rule-based, and online-learning-based.
+- **3 network conditions:** Normal, congested, and unstable.
+- **45 benchmark experiments:** 3 strategies × 3 network conditions × 5 trials.
+- **1,128 successful checkpoint transfers** recorded across the experiments.
+- **Fault recovery:** Workers can resume computation from their latest saved checkpoint.
+- **Performance analysis:** Execution time, checkpoint frequency, transfer performance, and online prediction error.
+
+
 ## Architecture
 
 

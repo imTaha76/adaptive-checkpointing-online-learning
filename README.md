@@ -113,7 +113,6 @@ The receiver server must be running in the receiver namespace before starting ne
 
 **Note:** The commands above demonstrate the main application strategies. Full network benchmarking requires the receiver server and network namespace configuration to be set up separately.
 
-## Architecture
 
 ## System Architecture
 

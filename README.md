@@ -181,14 +181,20 @@ The system was evaluated across three simulated network conditions using three c
 - **100% transfer success** across the evaluated experiments.
 - No failed transfers were recorded in the final benchmark batch.
 
-### Key Observations
+## Key Experimental Findings
 
-- Fixed scheduling performed best in the normal network condition.
-- Rule-based scheduling achieved the lowest execution time under congested and unstable conditions.
-- Online learning reduced checkpoint frequency compared with fixed scheduling.
-- Online learning did not outperform rule-based scheduling in execution time, indicating opportunities to improve the adaptive scheduling objective.
+The benchmark results show that checkpoint scheduling performance depends on network conditions.
 
-*Results represent mean values across five trials per strategy and network condition. Network conditions were simulated using Linux traffic control and network namespaces.*
+- **Normal network:** Fixed scheduling achieved the lowest average execution time (14.21 seconds).
+- **Congested network:** Rule-based scheduling achieved the lowest average execution time (22.52 seconds).
+- **Unstable network:** Rule-based scheduling achieved the lowest average execution time (29.56 seconds).
+- **Online learning:** Reduced the average checkpoint count from 30 (fixed strategy) to 21 across all three network profiles.
+
+### Interpretation
+
+The online-learning controller successfully uses incremental model predictions to inform checkpoint interval selection. However, it did not achieve the lowest execution time in these experiments. This highlights the importance of improving the scheduling objective and adapting it more effectively to changing network conditions.
+
+These findings are based on 45 benchmark runs across three simulated network profiles.
 
 ## Performance Visualizations
 
